@@ -1,7 +1,9 @@
-from kafka import KafkaProducer
 import json
-from random import random
 import logging
+from random import random
+
+from kafka import KafkaProducer
+
 from config import KAFKA_CONFIG, TOPIC
 
 logging.basicConfig(level=logging.INFO)

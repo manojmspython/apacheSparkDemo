@@ -1,9 +1,11 @@
-from kafka import KafkaConsumer
-import logging
 import json
+import logging
+
+from kafka import KafkaConsumer
+from sqlalchemy import create_engine
+
 from config import KAFKA_CONFIG, GROUP_ID, TOPIC, URI
 from db_push import dump_data
-from sqlalchemy import create_engine
 
 engine = create_engine(URI, echo=True)
 

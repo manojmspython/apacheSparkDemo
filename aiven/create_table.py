@@ -1,5 +1,5 @@
 from sqlalchemy import Column, String
-from sqlalchemy import create_engine, MetaData, Table, Float, Integer
+from sqlalchemy import create_engine, MetaData, Table, Integer
 from sqlalchemy.ext.declarative import declarative_base
 
 from config import URI

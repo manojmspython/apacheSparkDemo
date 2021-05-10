@@ -1,6 +1,5 @@
 from contextlib import contextmanager
 
-
 from sqlalchemy.orm import sessionmaker
 
 from create_table import customers
@@ -28,5 +27,3 @@ def dump_data(data, engine):
         c1 = customers.insert().values(**data)
         session.execute(c1)
         session.commit()
-
-
