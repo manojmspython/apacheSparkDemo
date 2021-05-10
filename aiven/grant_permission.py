@@ -1,6 +1,7 @@
-import psycopg2
-
+"""Grants access to the postgress USER"""
 from config import URI, PG_USER
+
+import psycopg2
 
 conn = psycopg2.connect(URI)
 cur = conn.cursor()

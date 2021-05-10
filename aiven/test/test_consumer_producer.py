@@ -1,9 +1,14 @@
+"""Pytests"""
 from kafka import KafkaConsumer, KafkaProducer
 
 from .config import KAFKA_CONFIG, GROUP_ID, TOPIC
 
 
 def test_consumer_producer():
+    """
+    Simple test function that tests the consumer and producer connection is working end to end.
+    :return:
+    """
     producer = KafkaProducer(**KAFKA_CONFIG, value_serializer=str.encode)
     consumer = KafkaConsumer(
         **KAFKA_CONFIG,

@@ -1,3 +1,4 @@
+"""Consumer application that consumes data from queue and pushes data in postgres."""
 import json
 import logging
 
@@ -17,16 +18,32 @@ class ConsumeData(object):
 
     @staticmethod
     def on_send_success(record_metadata):
+        """
+        Call back function to log details on success of consumer able to consume the data.
+
+        :param record_metadata: details of the consumed data from queue.
+        :return: None
+        """
         logging.info(
             f"data successfully pushed into topic: {record_metadata.topic}, partition: {record_metadata.partition}, offset: {record_metadata.offset}"
         )
 
     @staticmethod
     def on_send_error(excp):
+        """
+        Call back function to log details exception while consumer failed to consume data.
+        :param excp: Exception
+        :return: None
+        """
         logging.exception(excp)
 
     @staticmethod
     def desereliazer(data):
+        """
+        Json Desereliazer.
+        :param data: Message from consumer
+        :return: Json
+        """
         return json.loads(data)
 
     def __init__(self):
@@ -38,6 +55,12 @@ class ConsumeData(object):
         self.consumer.subscribe(TOPIC)
 
     def consume_data(self):
+        """
+        Consumes data from queue and pushes data in postgres.
+        :return: None
+        """
+
+        # assumption the consumer is setup using queue architecture else duplication of data can occur in DB.
         try:
             for message in self.consumer:
                 logging.info(

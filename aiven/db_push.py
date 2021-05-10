@@ -1,3 +1,5 @@
+""" This module dumps data into postgres"""
+
 from contextlib import contextmanager
 
 from sqlalchemy.orm import sessionmaker
@@ -23,6 +25,12 @@ def session_scope(engine_handler):
 
 
 def dump_data(data, engine):
+    """
+    Dump the data into postgres
+    :param data: Json data that needs to be pushed into DB
+    :param engine: connection engine
+    :return: None
+    """
     with session_scope(engine_handler=engine) as session:
         c1 = customers.insert().values(**data)
         session.execute(c1)
