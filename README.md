@@ -24,7 +24,7 @@ The application has a simple test case solution to test producer and consumer ar
   1. cd "test"
   2. run "pytest -q"
 
-Special Thanks to following:
+# Special Thanks to following:
 1.https://www.youtube.com/watch?v=R873BlNVUB4
   Well put video for understanding apache kafka.
 2. https://pypi.org/project/kafka-python/
